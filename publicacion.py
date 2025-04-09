@@ -1,20 +1,25 @@
-class Publicacion:
-    def __init__(self, titulo, autor, anio_publicacion):
-        self._titulo = titulo
-        self._autor = autor
-        self._anio_publicacion = anio_publicacion
-
-    def __str__(self):
-        return f"{self._titulo} por {self._autor}, publicado en {self._anio_publicacion}"
-
-    @property
-    def titulo(self):
-        return self._titulo
-
-    @property
-    def autor(self):
-        return self._autor
-
-    @property
-    def anio_publicacion(self):
-        return self._anio_publicacion
+class Producto:
+    def _init_(self, id, nombre, precio, stock):
+        self.__id = id
+        self.__nombre = nombre
+        self.__precio = precio
+        self.__stock = stock
+        
+    def get_precio(self):
+        return self.__precio
+        
+    def set_precio(self, precio):
+        if precio > 0:
+            self.__precio = precio
+            
+    def get_stock(self):
+        return self.__stock
+    
+    def vender(self, cantidad):
+        if cantidad <= self.__stock:
+            self.__stock -= cantidad
+            return True
+        return False
+    
+    def _str_(self):
+        return f"{self._nombre} - ${self.precio} (Stock: {self._stock})"
